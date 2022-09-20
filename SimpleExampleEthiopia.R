@@ -16,11 +16,12 @@ shp.map <- fortify(shp, region = "REGIONNAME")
 # Get listed regions
 region <- unique(shp.map$group )
 # For each state, determine your estimate (eg. prevalence). 
-# For example 
+########### For example ##############
 aux= rbinom(length(region),10,prob = 0.6)
 prevalence = aux/length(region)
 est_data <- data.frame(region=region,est=prevalence)
 head(est_data)
+######################################
 # Function to fill all the rows in the fortified shp file
 Infil <- function(region,est){
   shp.map$prev[which(shp.map$group==as.character(region))] <- est
