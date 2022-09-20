@@ -1,3 +1,5 @@
+# A simple code for ploting spatial estimates using ggplot.
+# This example used the Ethiopia shp file.
 require(rgdal)
 require(ggplot2)
 # Download shape file
