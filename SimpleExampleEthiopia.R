@@ -8,12 +8,12 @@ download.file("https://africaopendata.org/dataset/76683f42-e659-4c57-8d4f-bc1deb
 fn <- file.path(tempdir(), "ethiopiaregion.zip", fsep = "\\")
 # Unzip
 utils::unzip(fn, exdir = tempdir())
-# Load into R
+# Load into R. "Eth_Region_2013.shp" is among the unzipped folder.
 shp <- readOGR(dsn = file.path(tempdir(), "Eth_Region_2013.shp"), stringsAsFactors = F)
 names(shp)
 # Fortify
 shp.map <- fortify(shp, region = "REGIONNAME")
-# Get lested regions
+# Get listed regions
 region <- unique(shp.map$group )
 # For each state, determine your estimate (eg. prevalence). 
 # For example 
